@@ -1,0 +1,47 @@
+.draggable-elements-list {
+    margin-top: .5em;
+    width: 50%;
+}
+.draggable-element-handle {
+    background-color: gray;
+    display: inline-block;
+    border-radius: 50%;
+    width: .7em;
+    height: .7em;
+    cursor: move;
+}
+.draggable-element {
+    position: relative;
+    border: 1px solid silver;
+    background-color: white;
+    margin: 1px 0px;
+    /*padding: 0em .2em; macht drag&drop unhandlich*/
+}
+.task-title{
+    display: inline-block;
+    width: 50%;
+}
+.task-category, .task-issuer{
+    display: inline-block;
+    width: 20%;
+}
+.task-details{
+}
+.toggle-button {
+    color: gray;
+}
+span.control {
+    cursor: default;
+}
+div.absolute-right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-right: .2em;
+}
+textarea {
+    width: 99%;
+}
+div.status {
+    float: right;
+}

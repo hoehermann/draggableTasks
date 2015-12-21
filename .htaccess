@@ -1,0 +1,14 @@
+AddEncoding gzip .jsgz
+AddType text/javascript .jsgz
+
+<Limit POST>
+    AuthName "Hermanns Aufgaben Schreiben"
+    AuthType Basic
+    AuthBasicProvider file
+    AuthUserFile .htpasswd
+
+    Order Deny,Allow
+    Allow from all
+
+    Require valid-user
+</Limit>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html data-ng-app="sort">
+  <head>
+    <meta charset="utf-8" /> 
+    <title>Hermanns Aufgabenliste</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/angular.min.jsgz"></script>
+    <script src="js/angular-sortable-view.js"></script>
+    <script src="js/draggable-tasks.js"></script>
+    <script src="js/toggle.js"></script>
+  </head>
+  <body>
+    <div data-ng-controller="DraggableTasks">
+      <div class="status">{{message}}&nbsp;</div>
+      <div class="draggable-elements-list" data-sv-root data-sv-part="tasks" data-sv-on-sort="saveTasks()">
+        <div class="draggable-element" data-sv-element data-ng-repeat="task in tasks track by task.id">
+            &nbsp;<span class="toggle-button control" onClick="toggle_details(this);">&#x25b8;</span>
+            <span class="task-title">{{task.title}}</span>
+            <span class="task-category">{{task.category}}</span>
+            <span class="task-issuer">{{task.issuer}}</span>
+            <div class="absolute-right">
+            <span data-ng-click="remove($index)" class="control" title="Löschen">-</span>
+            &nbsp;
+            <span class="draggable-element-handle" data-sv-handle title="Anfasser zum Verschieben"></span>
+            </div>
+            <div class="task-details" hidden>
+              Zeit: <input type="date" data-ng-model="date"/> <input type="number" data-ng-model="hours"/> <span data-ng-click="addHours($index,date,hours)" class="control" title="vermerken">+</span>
+              <textarea data-ng-model="task.details" data-ng-blur="saveTasks()"></textarea>
+            </div>
+        </div>
+      </div>
+      <div class="draggable-elements-list">
+      <input data-ng-model="title" type="text" class="task-title" />
+      <input data-ng-model="category" type="text" class="task-category" />
+      <input data-ng-model="issuer" type="text" class="task-issuer" />
+      <span data-ng-click="add(title,category,issuer)" class="control" title="hinzufügen">+</span>
+      </div>
+    </div>
+  </body>
+</html>
